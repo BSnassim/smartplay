@@ -10,30 +10,26 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Fournisseur
 {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string", length=20)
-     */
     private $code_four;
 
     /**
-     * @ORM\Column(type="string", length=250, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $des_four;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $adr_four;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $contact_four;
 
@@ -42,21 +38,10 @@ class Fournisseur
      */
     private $tel_four;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
-    public function getCodeFour(): ?string
+    public function getCodeFour(): ?int
     {
         return $this->code_four;
-    }
-
-    public function setCodeFour(string $code_four): self
-    {
-        $this->code_four = $code_four;
-
-        return $this;
     }
 
     public function getDesFour(): ?string

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CommandeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,14 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Commande
 {
+
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $num_cde;
@@ -44,25 +43,14 @@ class Commande
 
     /**
      * @ORM\ManyToOne(targetEntity=client::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(referencedColumnName="code_clt", nullable=false)
      */
     private $code_clt_cde;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getNumCde(): ?int
     {
         return $this->num_cde;
-    }
-
-    public function setNumCde(int $num_cde): self
-    {
-        $this->num_cde = $num_cde;
-
-        return $this;
     }
 
     public function getDateCde(): ?\DateTimeInterface
@@ -124,4 +112,6 @@ class Commande
 
         return $this;
     }
+
+    
 }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\JouetRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,20 +12,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Jouet
 {
-    /**
+
+
+        /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string", length=20)
-     */
     private $code_jouet;
 
     /**
-     * @ORM\Column(type="string", length=250, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $des_jouet;
 
@@ -35,29 +34,17 @@ class Jouet
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $PU_jouet;
+    private $pu_jouet;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Fournisseur::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=fournisseur::class)
+     * @ORM\JoinColumn(referencedColumnName="code_four", nullable=false)
      */
     private $code_four_jouet;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getCodeJouet(): ?string
+    public function getCodeJouet(): ?int
     {
         return $this->code_jouet;
-    }
-
-    public function setCodeJouet(string $code_jouet): self
-    {
-        $this->code_jouet = $code_jouet;
-
-        return $this;
     }
 
     public function getDesJouet(): ?string
@@ -84,27 +71,29 @@ class Jouet
         return $this;
     }
 
-    public function getPUJouet(): ?int
+    public function getPuJouet(): ?int
     {
-        return $this->PU_jouet;
+        return $this->pu_jouet;
     }
 
-    public function setPUJouet(?int $PU_jouet): self
+    public function setPuJouet(?int $pu_jouet): self
     {
-        $this->PU_jouet = $PU_jouet;
+        $this->pu_jouet = $pu_jouet;
 
         return $this;
     }
 
-    public function getCodeFourJouet(): ?Fournisseur
+    public function getCodeFourJouet(): ?fournisseur
     {
         return $this->code_four_jouet;
     }
 
-    public function setCodeFourJouet(?Fournisseur $code_four_jouet): self
+    public function setCodeFourJouet(?fournisseur $code_four_jouet): self
     {
         $this->code_four_jouet = $code_four_jouet;
 
         return $this;
     }
+
+
 }

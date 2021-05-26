@@ -10,25 +10,21 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Client
 {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string", length=20)
-     */
     private $code_clt;
 
     /**
-     * @ORM\Column(type="string", length=250, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $des_clt;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $adr_clt;
 
@@ -37,21 +33,10 @@ class Client
      */
     private $tel_clt;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
-    public function getCodeClt(): ?string
+    public function getCodeClt(): ?int
     {
         return $this->code_clt;
-    }
-
-    public function setCodeClt(string $code_clt): self
-    {
-        $this->code_clt = $code_clt;
-
-        return $this;
     }
 
     public function getDesClt(): ?string
