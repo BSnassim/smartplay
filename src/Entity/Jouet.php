@@ -33,7 +33,7 @@ class Jouet
     private $qte_stock;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $PU_jouet;
 
@@ -83,12 +83,12 @@ class Jouet
         return $this;
     }
 
-    public function getPUJouet(): ?float
+    public function getPUJouet(): ?int
     {
         return $this->PU_jouet;
     }
 
-    public function setPUJouet(?float $PU_jouet): self
+    public function setPUJouet(?int $PU_jouet): self
     {
         $this->PU_jouet = $PU_jouet;
 

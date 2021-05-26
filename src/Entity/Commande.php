@@ -38,7 +38,7 @@ class Commande
     private $remise_cde;
 
     /**
-     * @ORM\Column(type="decimal", precision=5, scale=2, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $mnt_cde;
 
@@ -100,12 +100,12 @@ class Commande
         return $this;
     }
 
-    public function getMntCde(): ?string
+    public function getMntCde(): ?int
     {
         return $this->mnt_cde;
     }
 
-    public function setMntCde(?string $mnt_cde): self
+    public function setMntCde(?int $mnt_cde): self
     {
         $this->mnt_cde = $mnt_cde;
 
