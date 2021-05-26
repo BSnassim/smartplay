@@ -23,14 +23,14 @@ class Jouet
     private $code_jouet;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=250, nullable=true)
      */
     private $des_jouet;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $qte_stock;
+    private $qte_stock_jouet;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -38,7 +38,8 @@ class Jouet
     private $PU_jouet;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\ManyToOne(targetEntity=Fournisseur::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $code_four_jouet;
 
@@ -71,14 +72,14 @@ class Jouet
         return $this;
     }
 
-    public function getQteStock(): ?int
+    public function getQteStockJouet(): ?int
     {
-        return $this->qte_stock;
+        return $this->qte_stock_jouet;
     }
 
-    public function setQteStock(int $qte_stock): self
+    public function setQteStockJouet(int $qte_stock_jouet): self
     {
-        $this->qte_stock = $qte_stock;
+        $this->qte_stock_jouet = $qte_stock_jouet;
 
         return $this;
     }
@@ -95,12 +96,12 @@ class Jouet
         return $this;
     }
 
-    public function getCodeFourJouet(): ?string
+    public function getCodeFourJouet(): ?Fournisseur
     {
         return $this->code_four_jouet;
     }
 
-    public function setCodeFourJouet(string $code_four_jouet): self
+    public function setCodeFourJouet(?Fournisseur $code_four_jouet): self
     {
         $this->code_four_jouet = $code_four_jouet;
 

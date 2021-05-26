@@ -38,12 +38,13 @@ class Commande
     private $remise_cde;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      */
     private $mnt_cde;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\ManyToOne(targetEntity=client::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $code_clt_cde;
 
@@ -105,19 +106,19 @@ class Commande
         return $this->mnt_cde;
     }
 
-    public function setMntCde(?int $mnt_cde): self
+    public function setMntCde(int $mnt_cde): self
     {
         $this->mnt_cde = $mnt_cde;
 
         return $this;
     }
 
-    public function getCodeCltCde(): ?string
+    public function getCodeCltCde(): ?client
     {
         return $this->code_clt_cde;
     }
 
-    public function setCodeCltCde(string $code_clt_cde): self
+    public function setCodeCltCde(?client $code_clt_cde): self
     {
         $this->code_clt_cde = $code_clt_cde;
 

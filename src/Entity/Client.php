@@ -23,7 +23,7 @@ class Client
     private $code_clt;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=250, nullable=true)
      */
     private $des_clt;
 
