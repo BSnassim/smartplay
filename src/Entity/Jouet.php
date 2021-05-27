@@ -37,7 +37,7 @@ class Jouet
     private $pu_jouet;
 
     /**
-     * @ORM\ManyToOne(targetEntity=fournisseur::class)
+     * @ORM\ManyToOne(targetEntity=Fournisseur::class)
      * @ORM\JoinColumn(referencedColumnName="code_four", nullable=false)
      */
     private $code_four_jouet;

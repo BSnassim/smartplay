@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jouets{% endblock %}
+
+{% block body %}
+<style>
+    
+</style>
+
+<div>
+    <h1>Liste des jouets</h1>
+    <ul>
+    Jouets par EduGame
+    {% for p in edugame %}
+        <li>{{ p.DesJouet }} <b>Quantité en stock:</b> {{ p.QteStockJouet }} <b>Prix Unitaire:</b> {{ p.PuJouet }} Millimes</li>
+    {% endfor %}
+    </ul>
+    <ul>
+    Jouet avec max Qte de stock
+    {% for m in max %}
+        <li>{{ m.des_jouet }} <b>Quantité en stock:</b> {{ m.stock }} <b>Prix Unitaire:</b> {{ m.pu_jouet }} Millimes</li>
+    {% endfor %}
+    </ul>
+    <ul>
+    Jouet le moin cher
+    {% for s in min %}
+        <li>{{ s.DesJouet }} <b>Quantité en stock:</b> {{ s.QteStockJouet }} <b>Prix Unitaire:</b> {{ s.PuJouet }} Millimes</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}

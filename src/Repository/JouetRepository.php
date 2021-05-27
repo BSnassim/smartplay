@@ -18,7 +18,22 @@ class JouetRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Jouet::class);
     }
-
+    public function findMaxStock()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('j.des_jouet,MAX(j.qte_stock_jouet) as stock,j.pu_jouet')
+            ->from('App\Entity\Jouet','j')
+            ->getQuery()
+            ->getResult();
+    }
+    public function findMinPrice()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('MIN(s.pu_jouet) as min')
+            ->from('App\Entity\Jouet','s')
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Jouet[] Returns an array of Jouet objects
     //  */

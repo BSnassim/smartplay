@@ -3,5 +3,9 @@ Home:
     controller: App\Controller\HomeController::index
 
 Destination:
-    path: /Destination
+    path: /Partenaires
     controller: App\Controller\DestinationController::index
+
+Jouet:
+    path: /Jouets
+    controller: App\Controller\JouetController::index
